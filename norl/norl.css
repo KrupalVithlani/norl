@@ -1,0 +1,50 @@
+/* CSS declarations go here */
+.del-btn{
+    margin-left: 5px;
+}
+
+.todo {
+    margin: 5px 5px 5px -30px;
+    font-size: 18px;
+}
+
+
+.category {
+    margin-right: 5px;
+    color: tomato;
+    border: thin tomato solid;
+    padding-left: 2px;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+.northstar{
+    min-height: 30vh;
+    padding: 20px;
+    margin: 15px;
+    border: tomato;
+    border-radius: 20px;
+    background-color: tomato;
+    color: snow;
+}
+
+.northstar, .orion{
+    min-height: 30vh;
+    padding: 20px;
+    margin: 15px;
+    border: tomato;
+    border-radius: 20px;
+    background-color: tomato;
+    color: snow;
+}
+
+.sidebar {
+    min-height: 90vh;
+    padding: 10px;
+    border-right: solid rgba(3, 156, 245, 0.5) 0.3px;
+}
+
+.subtitle{
+    margin-bottom: 20px;
+}
