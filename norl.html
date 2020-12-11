@@ -1,0 +1,97 @@
+<head>
+  <title>North Life</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+  <div class="navbar navbar-default" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <a href="/" class="navbar-brand">North Life</a>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-left">
+          <li>
+            <a href="about">About</a>
+          </li>
+          <li>
+            <a href="help">Help</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-2 sidebar">
+         <h3>Welcome, User!</h3>
+         <hr>
+         <h4>
+          <a href="#">Today</a>
+         </h4>
+         <hr>
+         <h4>
+          <a href="#">Yesterday</a>
+         </h4>
+         <hr>
+         <h4>
+          <a href="#">Tomorrow</a>
+         </h4>
+         <hr>
+         <p>Jump to date:</p>
+         <input type="date" name="" id=""> <button class="btn btn-primary" >Go</button>
+      </div>
+      <div class="col-md-10">
+        <div class="row">
+          <div class="col-md-5 northstar"> <h2>North Star</h2> <i class="fa fa-star" aria-hidden="true"></i><br> {{> northstar}} </div>
+          <div class="col-md-5 orion"> <h2>Orion</h2><i class="fa fa-star" aria-hidden="true"></i><br> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i><br> {{> orion}} </div>
+        </div>
+        <h3 class="subtitle"> To-do for today </h3>
+        {{> todo}}
+        <div>
+          <input type="text" placeholder="Add task">
+          <select class="" id="">
+            <option>P</option>
+            <option>O</option>
+            <option>U</option>
+            <option>R</option>
+          </select>
+          <button type="button" class="btn btn-primary">Add task</button>
+        </div>
+        
+      </div>      
+  </div>
+  </div>
+
+</body>
+
+<template name="todo">
+  <table class="table">
+    <tr>
+      <th scope="col">Status</th>
+      <th scope="col">Category</th>
+      <th scope="col">Task</th>
+      <th scope="col">Delete</th>
+    </tr>
+    <tbody>
+      {{#each listitems}}
+      <tr id="{{_id}}">
+        <td><input type="checkbox" checked={{isChecked}} class="js-check-todo" id="{{_id}}"> </td>
+        <th scope="row">{{category}}</th>
+        <td class="{{#if isChecked}}checked{{/if}}">{{title}}</td>
+        <td> <button class="js-del-todo btn btn-danger del-btn">X</button> </td>
+      </tr>
+      {{/each}}
+    </tbody>  
+  </table>
+</template>
+
+<template name="northstar">
+  <h3>This is northstar</h3>
+</template>
+
+<template name="orion">
+  <h4>This is Orion 1</h4>
+  <h4>This is Orion 2</h4>
+  <h4>This is Orion 3</h4>
+</template>
