@@ -1,0 +1,86 @@
+<head>
+  <title>North Life</title>
+</head>
+<body>
+  <div class="navbar navbar-default" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <a href="/" class="navbar-brand">North Life</a>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-left">
+          <li>
+            <a href="about">About</a>
+          </li>
+          <li>
+            <a href="help">Help</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-2 sidebar">
+         <h3>Welcome, User!</h3>
+         <hr>
+         <h4>
+          <a href="#">Today</a>
+         </h4>
+         <hr>
+         <h4>
+          <a href="#">Yesterday</a>
+         </h4>
+         <hr>
+         <h4>
+          <a href="#">Tomorrow</a>
+         </h4>
+         <hr>
+         <p>Jump to date:</p>
+         <input type="date" name="" id=""> <button class="btn btn-primary" >Go</button>
+      </div>
+      <div class="col-md-10">
+        <div class="row">
+          <div class="col-md-5 northstar"> North Star </div>
+          <div class="col-md-5 orion"> Orions </div>
+        </div>
+        <h3 class="subtitle"> To-do for today </h3>
+        {{> todo}}
+        <div>
+          <input type="text" placeholder="Add task">
+          <select class="" id="">
+            <option>P</option>
+            <option>O</option>
+            <option>U</option>
+            <option>R</option>
+          </select>
+          <button type="button" class="btn btn-primary">Add task</button>
+        </div>
+        
+      </div>      
+  </div>
+  </div>
+
+</body>
+
+<template name="todo">
+  <table class="table">
+    <tr>
+      <th scope="col">Category</th>
+      <th scope="col">Task</th>
+      <th scope="col">Status</th>
+      <th scope="col">Delete</th>
+    </tr>
+    <tbody>
+      {{#each listitems}}
+      <tr>
+        <th scope="row">{{category}}</th>
+        <td>{{title}}</td>
+        <td> Done </td>
+        <td> <button type="button" class="btn btn-danger del-btn">X</button> </td>
+      </tr>
+      {{/each}}
+    </tbody>  
+  </table>
+</template>
