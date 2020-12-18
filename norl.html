@@ -1,84 +1,62 @@
 <head>
   <title>North Life</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-  <div class="navbar navbar-default" role="navigation">
-    <div class="container">
-      <div class="navbar-header">
-        <a href="/" class="navbar-brand">North Life</a>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar_header">
+        <h2>North Life</h2>
       </div>
-      <div class="navbar-collapse collapse">
-        <ul class="nav navbar-nav navbar-left">
-          <li>
-            <a href="about">About</a>
-          </li>
-          <li>
-            <a href="help">Help</a>
-          </li>
-        </ul>
+    </div>  
+  </nav>
+  <div class="container-fluid app">
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-4">
+        <div class="northstar"> <h2>North Star ✵</h2> {{> northstar}} tap on text above to edit </div>
       </div>
+      <div class="col-md-4">
+        <div class="orion"> <h2>Orions ✣</h2> {{> orion}} tap on text above to edit </div>
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+    <div class="row">
+      <div class="col-md-2">      </div>
+      <div class="col-md-8">      
+        <h3 class="subtitle"> To-dos </h3>
+        {{> todo}}
+        <!-- add to do insert form here -->
+        {{> todo_add_form}}
+      </div>      
+      <div class="col-md-2">      </div>
+
+    </div>
+    <div class="row">
+      <div class="col-md-2">      </div>
+      <div class="col-md-8">      
+        <h3 class="subtitle"> Quick User Guide </h3>
+        {{> instructions}}
+      </div>      
+      <div class="col-md-2">      </div>
+
     </div>
   </div>
-  
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-2 sidebar">
-         <h3>Welcome, User!</h3>
-         <hr>
-         <h4>
-          <a href="#">Today</a>
-         </h4>
-         <hr>
-         <h4>
-          <a href="#">Yesterday</a>
-         </h4>
-         <hr>
-         <h4>
-          <a href="#">Tomorrow</a>
-         </h4>
-         <hr>
-         <p>Jump to date:</p>
-         <input type="date" name="" id=""> <button class="btn btn-primary" >Go</button>
-      </div>
-      <div class="col-md-10">
-        <div class="row">
-          <div class="col-md-5 northstar"> <h2>North Star</h2> <i class="fa fa-star" aria-hidden="true"></i><br> {{> northstar}} </div>
-          <div class="col-md-5 orion"> <h2>Orion</h2><i class="fa fa-star" aria-hidden="true"></i><br> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i><br> {{> orion}} </div>
-        </div>
-        <h3 class="subtitle"> To-do for today </h3>
-        {{> todo}}
-        <div>
-          <input type="text" placeholder="Add task">
-          <select class="" id="">
-            <option>P</option>
-            <option>O</option>
-            <option>U</option>
-            <option>R</option>
-          </select>
-          <button type="button" class="btn btn-primary">Add task</button>
-        </div>
-        
-      </div>      
-  </div>
-  </div>
-
 </body>
 
 <template name="todo">
   <table class="table">
     <tr>
       <th scope="col">Status</th>
-      <th scope="col">Category</th>
       <th scope="col">Task</th>
+      <th scope="col">Category</th>
       <th scope="col">Delete</th>
     </tr>
     <tbody>
       {{#each listitems}}
       <tr id="{{_id}}">
         <td><input type="checkbox" checked={{isChecked}} class="js-check-todo" id="{{_id}}"> </td>
-        <th scope="row">{{category}}</th>
         <td class="{{#if isChecked}}checked{{/if}}">{{title}}</td>
+        <th scope="row">{{category}}</th>
         <td> <button class="js-del-todo btn btn-danger del-btn">X</button> </td>
       </tr>
       {{/each}}
@@ -87,11 +65,48 @@
 </template>
 
 <template name="northstar">
-  <h3>This is northstar</h3>
+  {{#each northstar}}
+  <h3><input type="text" value="{{title}}" name="title"></h3>
+  {{/each}}
 </template>
 
 <template name="orion">
-  <h4>This is Orion 1</h4>
-  <h4>This is Orion 2</h4>
-  <h4>This is Orion 3</h4>
+  {{#each orions}}
+  <h4>✦<input type="text" value="{{title}}" name="title"></h4>
+  {{/each}}
+</template>
+
+<template name="todo_add_form">
+  <form class="js_add_todo">
+    <!--<input type="text" name="todo_category" placeholder="task category">-->
+    <input type="text" name="todo_item" placeholder="Add task">
+    <select name="todo_category">
+      <option name = "P" value = "P">P</option>
+      <option name = "O" value = "O">O</option>
+      <option name = "U" value = "U">U</option>
+      <option name = "R" value = "R">R</option>
+      <option name = "⚠️" value = "⚠️">⚠️</option>
+   </select>
+  
+    <button class="btn btn-success">Add task</button>  
+  </form>
+  
+</template>
+
+<template name="instructions">
+  <p>North Life is a productivity and life style app that uses principles of behavioural and cognitive psychology and allows users to attain a balanced and happy life. Here are brief instructions on how to use this app.</p>
+  <p> Start by adding North Star. Your North Star is your life's purpose. It maybe something like becoming a bestselling author or working at silicon valley or getting married to you childhood crush (no judgements here). Just click or touch on text below "North Star ✵" heading and whatever you edit will be autosaved. </p>
+  <p>	Now add your orions. Orions are three tasks that you can finish in three to six months and will get you closer to your North Star. Orions are also editable texts so just tap/click on each items below heading "Orions ✣", and edit them one by one and they're auto saved the same moment as you edit them.</p>
+  <p>As the day passes cognitive control is reduced so we advise users to mark the most important tasks in the caution category (⚠️). Completing these tasks first makes them less vulnerable to decision fatigue and sets the day for sucesss. This makes the day feel more like a snow ball of productivity rolling downhill and less like a climb (which is what is conventinally attempted). So soon as you add a task with this category, its automatically moved to the top. </p>
+  <p>This is best elaborated in the following quote:</p>
+  <h4 class="subtitle">“If it’s your job to eat a frog, <br> it’s best to do it first thing in the morning. <br> And if it’s your job to eat two frogs, <br> it’s best to eat the biggest one first.” <br> - Mark Twain  </h4>
+  <p>
+    Other categories of tasks are marked by acronym POUR. POUR stands for: <br>
+    P = Play/Something that you like to do but its non competitive such as Yoga or writing poetry. <br>
+    O = Others/Spending time with loved ones. <br>
+    U = Unlink/Regenrative or rejuvinating tasks such as a nap or meditation. <br>
+    R = Raison D'etre/Purposeful work that in direction of orion and gets you closer to your North Star. <br> 
+    Balancing the tasks in these categories say have 2 tasks in each of the categories, allows the user to experience more fulfilled life as all the different aspects of life are integrated. The acronym is based on research of Dr. Shimi Kang is an award-winning Harvard-trained doctor, Researcher, Bestselling Author and Speaker. 
+  </p>
+  <p>The symbol of North star and orions is used to avoid rigid planning mentality and to convey just a general sense of direction.</p>
 </template>

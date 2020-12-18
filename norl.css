@@ -1,50 +1,30 @@
 /* CSS declarations go here */
-.del-btn{
-    margin-left: 5px;
+body{
+    margin-bottom: 50px;
+} 
+
+.app{
+    margin-top: 100px;
 }
-
-.todo {
-    margin: 5px 5px 5px -30px;
-    font-size: 18px;
-}
-
-
-.category {
-    margin-right: 5px;
-    color: tomato;
-    border: thin tomato solid;
-    padding-left: 2px;
-    font-weight: bold;
-    text-align: center;
-}
-
-
 .northstar{
     min-height: 30vh;
     padding: 20px;
-    margin: 15px;
-    border: tomato;
+    margin: 0 10px 10px 0;
+    border: orangered;
     border-radius: 20px;
-    background-color: tomato;
-    color: snow;
+    background-color:tomato ;
+    color: whitesmoke;
 }
 
-.northstar, .orion{
+.orion{
     min-height: 30vh;
     padding: 20px;
-    margin: 15px;
-    border: tomato;
+    margin: 0 10px 10px 0;
+    border:orangered;
     border-radius: 20px;
     background-color: tomato;
-    color: snow;
+    color:  whitesmoke;
 }
-
-.sidebar {
-    min-height: 90vh;
-    padding: 10px;
-    border-right: solid rgba(3, 156, 245, 0.5) 0.3px;
-}
-
 .subtitle{
     margin-bottom: 20px;
 }
@@ -54,4 +34,35 @@
 input[type=checkbox]{
     width: 24px;
     height: 24px;
+}
+
+table{
+    font-size: 120%;
+}
+
+[name=title]{
+    border: none;
+    font-size: 120%;
+    color: whitesmoke;
+    padding:0.15em;
+    background-color: tomato;
+    cursor:pointer;
+}
+    
+[name=title]:hover{
+    border: none;
+    border-bottom: snow solid 3px;
+    cursor:pointer;
+    background-color: orange;
+}
+
+.navbar{
+    margin-bottom: 50px;
+}
+
+.navbar_header { 
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: whitesmoke;
 }

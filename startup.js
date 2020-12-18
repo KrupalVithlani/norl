@@ -29,7 +29,30 @@ if (Meteor.isServer) {
           category: "R",
           isChecked:true
         }
+      ),
+      Northstar.insert(
+        {
+          title: "This is North Star"
+        }
       )
-    }  
+    }; 
+    if (Orions.find().count() == 0){
+      Orions.insert(
+        {
+          title: "This is Orion 1",
+        }
+      ),
+      Orions.insert(
+        {
+          title: "This is Orion 2",
+        }
+      ),
+      Orions.insert(
+        {
+          title: "This is Orion 3",
+        }
+      )
+    }
   });
+  
 }
